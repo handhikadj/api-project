@@ -1,31 +1,18 @@
 <template>
-    <div>
-        <header-dash />
+        <div>
 
-        	<transition name="custom"
-            enter-active-class="animated fadeIn"
-            mode="out-in">
-        	   <product-content />
-            </transition>               
-
-        <footer-dash />
-    </div>
+            <span>Product</span>
+            
+        </div>
 </template>
 
 <script>
     import 'animate.css'
-    import Header from '@/components/base_layout/HeaderSidebar'
-    import Footer from '@/components/base_layout/FooterVue'
-    import Content from '@/components/product_view/ProductContent'
 
     export default {
 
-    name: 'Dashboard',
-    components: {
-        'header-dash': Header,
-        'footer-dash': Footer,
-        'product-content': Content
-    },
+    name: 'Product',
+    
     data () {
         return {
     	   msgme: 'vue'

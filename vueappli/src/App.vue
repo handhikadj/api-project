@@ -1,6 +1,6 @@
 <template>
     <v-app id="inspire" class="animated fadeIn">
-        
+
         <router-view />
     
     </v-app>

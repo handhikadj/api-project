@@ -1,17 +1,13 @@
 <template>
 	<div>
-		<v-content>
-			<v-container grid-list-xl>
-			<span>Product</span>
-			</v-container>
-		</v-content>
+		<span>Sale</span>
 	</div>
 </template>
 
 <script>
 	export default {
 
-		name: 'ProductContent',
+		name: 'Sale',
 
 		data () {
 			return {

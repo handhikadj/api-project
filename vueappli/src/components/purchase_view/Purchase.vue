@@ -1,15 +1,13 @@
 <template>
 	<div>
-		<span>Home</span>
+		<span>Purchase</span>
 	</div>
 </template>
 
 <script>
-	import 'animate.css'
-
 	export default {
 
-		name: 'Dashboard',
+		name: 'Purchase',
 
 		data () {
 			return {

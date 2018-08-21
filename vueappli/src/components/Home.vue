@@ -1,113 +1,70 @@
 <template>
-	<div>
+    <div class="animated fadeIn">
+        <header-dash />
+            <v-content>
+                <v-container grid-list-xl>
 
-		<v-container :class="showLogClass">
-            <v-layout row wrap>
-                <v-flex offset-sm2>
-
-			        <div v-if="accessState">
-			        	<transition 
-                        name="slide"
-                        mode="out-in"
-                        >
-                            <login/>
-                    	</transition>
-			        </div>
-			        <div v-else>
-	                    <transition 
-	                    name="slide"
-	                    mode="out-in"
-	                    >
-	                        <register />
-	                    </transition>
-                	</div>
-
-				</v-flex>
-        	</v-layout>
-    	</v-container>
-
-	</div>
+                    <transition name="fadeUp"
+                    mode="out-in">
+                        <router-view />
+                    </transition>
+                    
+                </v-container>
+            </v-content>
+        <footer-dash />
+    </div>
 </template>
 
 <script>
-	import 'animate.css'
-	import Login from '@/components/auth/Login'
-	import Register from '@/components/auth/Register'
-	import { mapGetters } from 'vuex'
+    import 'animate.css'
+    import Header from '@/components/base_layout/HeaderSidebar'
+    import Footer from '@/components/base_layout/FooterVue'
 
-	export default {
+    export default {
 
-		name: 'Home',
-		components: {
-			'login' : Login,
-			'register': Register
-
-		},
-		computed: {
-			...mapGetters ([
-                'showLogClass',
-                'accessState'
-            ])
-		}
-	}
+        name: 'Dashboard',
+        components: {
+            'header-dash': Header,
+            'footer-dash': Footer,
+        },
+        data () {
+            return {
+        	   msgme: 'vue'
+            }
+        }
+    }
 </script>
 
 <style lang="css" scoped>
-	.logincontain {
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0px 5px 17px -3px rgba(0,0,0,0.75);
-        width: 450px;
-        margin-top: 100px;
-        transition: all 0.3s ease-in;
+	a {
+        text-decoration: none;
     }
 
-    .registercontain {
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0px 5px 17px -3px rgba(0,0,0,0.75);
-        width: 450px;
-        margin-top: 85px;
-        transition: all 0.2s ease-in;
+    .fadeUp-enter-active {
+        animation: fades 0.25s linear;
     }
 
-    .slide-enter-active{
-        animation: slide-left 0.052s ease-in;
+    .fadeUp-leave-active {
+        animation: fades-up 0.25s ease-out;
     }
 
-    .slide-leave-active{
-        animation: slide-right 0.052s ease-in;
-    }
-
-    @keyframes slide-left {
+    @keyframes fades {
         from {
-            transform: translateX(100px);
             opacity: 0;
         }
         to {
-            transform: translateX(0);   
             opacity: 1;
         }
     }
 
-    @keyframes slide-right {
+    @keyframes fades-up {
         from {
-            transform: translateX(0);
+            transform: translateY(0);
             opacity: 1;
         }
         to {
-            transform: translateX(-100px);   
+            transform: translateY(-10px);   
             opacity: 0;
         }
-    }
-
-    @media (min-width: 250px) and (max-width: 500px) {
-        .registercontain {
-            max-width: 335px;
-            margin-top: 20px;
-        }
-
-        .logincontain {
-            max-width: 335px;
-            margin-top: 75px;
-        }   
     }
 </style>

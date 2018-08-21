@@ -157,7 +157,7 @@
                         .then(() => 
                         	setTimeout(() => { 
                         		this.$router.push('/home')
-                        	}, 1500)
+                        	}, 500)
                         )
                         .catch((error) => {
                         	this.errorsForm = error.response.data
