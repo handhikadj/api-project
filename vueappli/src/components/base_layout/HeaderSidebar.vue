@@ -14,35 +14,35 @@
         >
             <v-list class="list-mar">
 
-                <v-list-tile @click.stop="homeView" class="">
+                <v-list-tile to="/home">
                     <v-list-tile-action>
                         <v-icon>account_balance</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>Home</v-list-tile-title>
                 </v-list-tile>
                 <v-divider inset dark class="divided"></v-divider>
-                <v-list-tile @click.stop="productView">
+                <v-list-tile to="/product">
                     <v-list-tile-action>
                         <v-icon>account_balance_wallet</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>Master Barang</v-list-tile-title>
                 </v-list-tile>
                 <v-divider inset dark class="divided"></v-divider>
-                <v-list-tile @click.stop="purchaseView">
+                <v-list-tile to="/purchase">
                     <v-list-tile-action>
                         <v-icon>shopping_cart</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>Pembelian</v-list-tile-title>
                 </v-list-tile>
                 <v-divider inset dark class="divided"></v-divider>
-                <v-list-tile @click.stop="saleView">
+                <v-list-tile to="/sale">
                     <v-list-tile-action>
                         <v-icon>add_shopping_cart</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>Penjualan</v-list-tile-title>
                 </v-list-tile>
                 <v-divider inset dark class="divided"></v-divider>
-                <v-list-tile @click.stop="inventoryView">
+                <v-list-tile to="/inventory">
                     <v-list-tile-action>
                         <v-icon>book</v-icon>
                     </v-list-tile-action>
@@ -80,26 +80,6 @@
             }
         },
         methods: {
-            homeView() {
-                this.$router.push('/home') 
-                document.title = "Home"
-            },
-            productView() {
-                this.$router.push('/product') 
-                document.title = "Master Barang"
-            },
-            purchaseView() {
-                this.$router.push('/purchase') 
-                document.title = "Pembelian"
-            },
-            saleView() {
-                this.$router.push('/sale') 
-                document.title = "Penjualan"
-            },
-            inventoryView() {
-                this.$router.push('/inventory') 
-                document.title = "Inventory"
-            },
             logOut() {
                 localStorage.removeItem('api_token')
                 this.$router.replace('/')

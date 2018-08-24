@@ -6,9 +6,11 @@ import axios from 'axios'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import VeeValidate from 'vee-validate'
+import Swal from 'sweetalert'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+Vue.prototype.$swal = Swal
 
 let lumenme = 'http://lumenme.net'
 // let lumenme = 'http://localhost/api-project/lumen-complete/public'
