@@ -1,5 +1,5 @@
-<template>
-    <div class="animated fadeIn">
+<template>    
+    <div class="animated fadeIn" ref="homevue">
         <header-dash />
             <v-content>
                 <v-container grid-list-lg>
@@ -21,16 +21,10 @@
     import Footer from '@/components/base_layout/FooterVue'
 
     export default {
-
         name: 'Dashboard',
         components: {
             'header-dash': Header,
             'footer-dash': Footer,
-        },
-        data () {
-            return {
-        	   msgme: 'vue'
-            }
         },
         props: {
           source: String
@@ -39,7 +33,7 @@
 </script>
 
 <style lang="css" scoped>
-	a {
+	a {                                       
         text-decoration: none;
     }
 
@@ -49,6 +43,10 @@
 
     .fadeUp-leave-active {
         animation: fades-up 0.25s ease-out;
+    }
+
+    .fadeouts {
+        animation: fadedout 0.4s ease-out;
     }
 
     @keyframes fades {
@@ -67,6 +65,15 @@
         }
         to {
             transform: translateY(-10px);   
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadedout {
+        from {
+            opacity: 1;
+        }
+        to {
             opacity: 0;
         }
     }

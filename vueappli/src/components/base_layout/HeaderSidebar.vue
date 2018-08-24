@@ -11,6 +11,7 @@
         miniVariantWidth="200"
         @mouseover.native="mini = false"
         @mouseleave.native="mini = true"
+        :fullscreen="$vuetify.breakpoint.md"
         >
             <v-list class="list-mar">
 
@@ -62,7 +63,8 @@
 
         <!-- Header -->
         <v-toolbar color="cyan darken-2" dark fixed app>
-            <v-toolbar-side-icon @click.stop="mini = !mini"></v-toolbar-side-icon>
+            <v-toolbar-side-icon @click="mini = !mini">
+            </v-toolbar-side-icon>
             <v-toolbar-title>Application</v-toolbar-title>
         </v-toolbar>
 
@@ -70,20 +72,27 @@
 </template>
 
 <script>
-    export default {
 
+    export default {
         name: 'HeaderSidebar',
         data() {
             return {
-                drawer: null,
+                drawer: true,
                 mini: false,
             }
         },
         methods: {
             logOut() {
-                localStorage.removeItem('api_token')
-                this.$router.replace('/')
-                document.title = "Login"
+                let parenthomevue = this.$parent.$refs.homevue.classList
+                parenthomevue.remove('animated', 'fadeIn')
+                parenthomevue.add('fadeouts')
+                setTimeout(() => { 
+                    document.title = "Login"
+                    parenthomevue.remove('fadeouts')
+                    parenthomevue.add('animated', 'fadeIn')
+                    localStorage.removeItem('api_token')
+                    this.$router.replace('/')
+                }, 400)
             }
         }
 

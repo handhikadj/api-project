@@ -1,0 +1,12 @@
+.fadeouts {
+	animation: fadesOut 2000s ease-out;
+}
+
+@keyframes fadesOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}

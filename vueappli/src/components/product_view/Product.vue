@@ -326,14 +326,14 @@
                     setTimeout(() => { 
                         if (willDelete) {
                             this.desserts.splice(index, 1)
-                            swal("Poof! Your imaginary file has been deleted!", {
+                            swal("Berhasil terhapus", {
                                 icon: "success",
                             })
                             setTimeout(() => { 
                                 this.$swal.close()
                             }, 1500)
                         }
-                    }, 1500)
+                    }, 500)
                     
                 })
             },
