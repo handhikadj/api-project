@@ -37,6 +37,7 @@ const router = new Router({
 				{
 					path: '/inventory', component: Inventory,
 				},
+				
 			]
 		},
 	]	

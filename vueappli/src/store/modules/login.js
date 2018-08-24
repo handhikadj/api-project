@@ -1,6 +1,7 @@
 export default {
 	state: {
-		showLogin: true
+		showLogin: true,
+		title: true
 	},
 
 	getters: {

@@ -155,6 +155,7 @@
             }
         },
         mounted() {
+            document.title = "Register"
             this.$validator.localize('en', this.dictionary)
         },
         computed: {

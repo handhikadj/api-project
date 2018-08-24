@@ -2,13 +2,13 @@
     <div class="animated fadeIn">
         <header-dash />
             <v-content>
-                <v-container grid-list-xl>
-
+                <v-container grid-list-lg>
+                    
                     <transition name="fadeUp"
                     mode="out-in">
                         <router-view />
                     </transition>
-                    
+                        
                 </v-container>
             </v-content>
         <footer-dash />
@@ -31,6 +31,9 @@
             return {
         	   msgme: 'vue'
             }
+        },
+        props: {
+          source: String
         }
     }
 </script>

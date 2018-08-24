@@ -86,7 +86,10 @@
 	export default {
 		
 		name: 'Login',
-		
+
+		created() {
+			document.title = "Login"
+		},
 		data () {
 			return {
 				loginInput : {
@@ -157,6 +160,7 @@
                         .then(() => 
                         	setTimeout(() => { 
                         		this.$router.push('/home')
+                        		document.title = "Home"
                         	}, 500)
                         )
                         .catch((error) => {

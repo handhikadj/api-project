@@ -11,6 +11,7 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 
 let lumenme = 'http://lumenme.net'
+// let lumenme = 'http://localhost/api-project/lumen-complete/public'
 let localGet = localStorage.getItem('api_token')
 
 axios.defaults.baseURL = lumenme
