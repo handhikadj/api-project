@@ -7,7 +7,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 try {
     (new Dotenv\Dotenv(__DIR__.'/../'))->load();
 } catch (Dotenv\Exception\InvalidPathException $e) {
-    //
+//
 }
 
 /*
@@ -25,9 +25,9 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
- $app->withFacades();
+$app->withFacades();
 
- $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -70,17 +70,17 @@ $app->configure('database');
 |
 */
 
- $app->middleware([
-     \Barryvdh\Cors\HandleCors::class,
- ]);
+$app->middleware([
+    \Barryvdh\Cors\HandleCors::class,
+]);
 
- $app->routeMiddleware([
+$app->routeMiddleware([
     'cors' => \Barryvdh\Cors\HandleCors::class,
     'auth' => App\Http\Middleware\Authenticate::class,
     'throttle' => App\Http\Middleware\ThrottleRequests::class,
     'scopes'   => \Laravel\Passport\Http\Middleware\CheckScopes::class,
     'scope'    => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class
- ]);
+]);
 
 /*
 |--------------------------------------------------------------------------

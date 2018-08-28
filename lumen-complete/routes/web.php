@@ -11,23 +11,20 @@ use Laravel\Lumen\Routing\Router;
 | and give it the Closure to call when that URI is requested.
 |
 */
-/** @var \Laravel\Lumen\Routing\Router $router */
-$router->get('/', function () {
-    return app()->version();
-});
-
-// Generate random string
-$router->get('appKey', function () {
-    return str_random('32');
-});
-
-// route for creating access_token
-$router->post('accessToken', 'AccessTokenController@createAccessToken');
 
 $router->post('register', 'UserController@register');
 $router->post('login', 'UserController@login');
 
+// route for creating access_token
+$router->post('accessToken', 'AccessTokenController@createAccessToken');
+
 $router->group(['middleware' => ['auth:api', 'throttle:60']], function () use ($router) {
+
+    /*
+    |--------------------------------------------------------------------------
+    | User's Routes
+    |--------------------------------------------------------------------------
+    */
 
     $router->post('users', [
         'uses'       => 'UserController@store',
@@ -49,6 +46,14 @@ $router->group(['middleware' => ['auth:api', 'throttle:60']], function () use ($
         'uses'       => 'UserController@destroy',
         'middleware' => "scope:users,users:delete"
     ]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Product's Routes
+    |--------------------------------------------------------------------------
+    */
+
+
     
 });
 
